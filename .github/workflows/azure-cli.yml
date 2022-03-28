@@ -1,0 +1,31 @@
+name: GitHub Actions and Azure CLI
+
+on:
+  workflow_dispatch:
+    
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_AD_SUBS_LEVEL }}
+      
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Set env to DEV
+        if: github.ref == 'refs/heads/main'
+        run: | 
+          echo "ENVIRONMENT=dev" >> $GITHUB_ENV
+          echo "SQLSERVERPASSWORD=${{ secrets.AZURE_SQL_SERVER_PASSWORD }}" >> $GITHUB_ENV
+          echo "SQLSERVERUSERNAME=${{ secrets.AZURE_SQL_SERVER_USERNAME }}" >> $GITHUB_ENV
+
+      - name: Set env to QA
+        if: github.ref == 'refs/heads/qa'
+        run: | 
+          echo "ENVIRONMENT=dev" >> $GITHUB_ENV
+          echo "SQLSERVERPASSWORD=${{ secrets.AZURE_SQL_SERVER_PASSWORD }}" >> $GITHUB_ENV
+          echo "SQLSERVERUSERNAME=${{ secrets.AZURE_SQL_SERVER_USERNAME }}" >> $GITHUB_ENV
