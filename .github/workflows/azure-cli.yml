@@ -29,3 +29,16 @@ jobs:
           echo "ENVIRONMENT=qa" >> $GITHUB_ENV
           echo "SQLSERVERPASSWORD=${{ secrets.AZURE_SQL_SERVER_PASSWORD }}" >> $GITHUB_ENV
           echo "SQLSERVERUSERNAME=${{ secrets.AZURE_SQL_SERVER_USERNAME }}" >> $GITHUB_ENV
+      
+      - name: run env repo
+        uses: azure/cli@v1
+        with:
+          azcliversion: 2.30.0
+          inlineScript: |
+            echo "running env: $ENVIRONMENT"
+            chmod +x $GITHUB_WORKSPACE/deploy/$ENVIRONMENT/deploy/deploy.sh
+            $GITHUB_WORKSPACE/deploy/$ENVIRONMENT/deploy/deploy.sh
+
+      - name: Az Logout
+        run: |
+          az logout
