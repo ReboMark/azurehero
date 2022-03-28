@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+.font { font-family: 'Nunito', sans-serif; }
+.loginHeader {
+    color: blue;
+    margin-top: 200px;
+}
+
+.buttons {
+    background-color: #5449f7;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 20px;
+    width: auto;
+}
