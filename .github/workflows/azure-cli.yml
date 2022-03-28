@@ -36,8 +36,8 @@ jobs:
           azcliversion: 2.30.0
           inlineScript: |
             echo "running env: $ENVIRONMENT"
-            chmod +x $GITHUB_WORKSPACE/deploy/$ENVIRONMENT/deploy/deploy.sh
-            $GITHUB_WORKSPACE/deploy/$ENVIRONMENT/deploy/deploy.sh
+            chmod +x $GITHUB_WORKSPACE/deploy/$ENVIRONMENT/deploy/dev/deploy.sh
+            $GITHUB_WORKSPACE/deploy/$ENVIRONMENT/deploy/dev/deploy.sh
 
       - name: Az Logout
         run: |
