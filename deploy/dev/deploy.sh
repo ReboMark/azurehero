@@ -1,5 +1,5 @@
 rg_exists=$(az group exists -n $ENVIRONMENT-rg)
-
+echo "$rg_exists"
 if [ "$rg_exists" = "true" ];
 then
     echo "$ENVIRONMENT-rg exists!"
