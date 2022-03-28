@@ -11,7 +11,7 @@ jobs:
       - name: Azure Login
         uses: azure/login@v1
         with:
-          creds: ${{ secrets.AZURE_AD_SUBS_LEVEL }}
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
       
       - name: Checkout
         uses: actions/checkout@v1
@@ -26,6 +26,6 @@ jobs:
       - name: Set env to QA
         if: github.ref == 'refs/heads/qa'
         run: | 
-          echo "ENVIRONMENT=dev" >> $GITHUB_ENV
+          echo "ENVIRONMENT=qa" >> $GITHUB_ENV
           echo "SQLSERVERPASSWORD=${{ secrets.AZURE_SQL_SERVER_PASSWORD }}" >> $GITHUB_ENV
           echo "SQLSERVERUSERNAME=${{ secrets.AZURE_SQL_SERVER_USERNAME }}" >> $GITHUB_ENV
