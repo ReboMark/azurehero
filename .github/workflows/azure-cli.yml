@@ -22,6 +22,7 @@ jobs:
           echo "ENVIRONMENT=dev" >> $GITHUB_ENV
           echo "SQLSERVERPASSWORD=${{ secrets.AZURE_SQL_SERVER_PASSWORD }}" >> $GITHUB_ENV
           echo "SQLSERVERUSERNAME=${{ secrets.AZURE_SQL_SERVER_USERNAME }}" >> $GITHUB_ENV
+          echo "rg=dev-rg" >> $GITHUB_ENV
 
       - name: Set env to QA
         if: github.ref == 'refs/heads/qa'
