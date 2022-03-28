@@ -1,1 +1,1 @@
-az deployment group create -g $rg --template-file ./azure-$ENVIRONMENT.bicep
+az deployment group create -g $rg --template-file ./deploy/$ENVIRONMENT/azure-$ENVIRONMENT.bicep
