@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 const DefineAzureCloud = () => {
     const router = useRouter();
     const LuxotticaStandards = () => {
-        router.push("/LuxotticaStandards")
+        router.push("/luxottica")
     }
 
     const routeIaas = () => {
