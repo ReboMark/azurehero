@@ -7,7 +7,7 @@ import axios from "axios";
 
 const User = () => {
     const router = useRouter();
-    const [userLogin, setUserLogin] = useState("");
+    const [userLogin, setUserLogin] = useState();
     const publicClientApplication = new PublicClientApplication({
         auth: {
             clientId: config.appId,
@@ -24,16 +24,13 @@ const User = () => {
         try {
             var response = await publicClientApplication.loginPopup({
                 scopes: config.scopes,
-                prompt: "select_account"
+                prompt: "select_account",
+                redirectUri: "/dashboard"
             });
-
-            var response2 = await publicClientApplication.loginRedirect({
-                scopes: config.scopes,
-                
-            })
-            setUserLogin(JSON.stringify(response));
+            setUserLogin(response);
         }
         catch {
+            localStorage.clear()
             alert('error')
         }
     }
@@ -56,8 +53,12 @@ const User = () => {
     }
 
     useEffect(() => {
-        if (userLogin != "") { router.push("/dashboard")}
-        else { validateAuth() }
+        if (localStorage.length > 0) {
+            router.push("/dashboard")
+        }
+        else {
+            validateAuth()
+        }
     },[userLogin])
 
 
@@ -67,7 +68,7 @@ const User = () => {
                 <div className="row">
                     <div className="col-lg-4"></div>
                     <div className={"col-lg-4 text-center"}>
-                        <h4 className={`${styles.loginHeader}` + " " + `${styles.font}`}>Reports Management System</h4>
+                        <h4 className={`${styles.loginHeader}` + " " + `${styles.font}`}>Azure Brown Bag Session</h4>
                         {validateAuth()}
                     </div>
                     <div className="col-lg-4"></div>

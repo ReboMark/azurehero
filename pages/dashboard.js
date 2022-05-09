@@ -1,7 +1,8 @@
+import ContentHeader from "../src/Dashboard/Headers";
 const Dashboard = () => {
     return(
         <>
-            This is logged in!
+            <ContentHeader/>
         </>
     )
 }

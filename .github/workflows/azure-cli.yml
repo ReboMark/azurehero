@@ -31,7 +31,7 @@ jobs:
           echo "SQLSERVERPASSWORD=${{ secrets.AZURE_SQL_SERVER_PASSWORD }}" >> $GITHUB_ENV
           echo "SQLSERVERUSERNAME=${{ secrets.AZURE_SQL_SERVER_USERNAME }}" >> $GITHUB_ENV
       
-      - name: run env repo
+      - name: run env - $ENVIRONMENT
         uses: azure/cli@v1
         with:
           azcliversion: 2.30.0

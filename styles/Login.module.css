@@ -1,12 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
 .font { font-family: 'Nunito', sans-serif; }
 .loginHeader {
-    color: blue;
+    color: #0080FF;
     margin-top: 200px;
 }
 
+.customBg {
+    background-color: #0080FF;
+}
+
 .buttons {
-    background-color: #5449f7;
+    background-color: #0080FF;
     border: none;
     color: white;
     padding: 10px 20px;
@@ -17,4 +21,27 @@
     cursor: pointer;
     border-radius: 20px;
     width: auto;
+}
+
+.next {
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.boxMargins {
+    border-style: solid;
+    border-width: 20px;
+    border-radius: 40px;
+    border-color: #0080FF;
+    color: black;
+    background-color: white;
+    padding: 20px;
 }
