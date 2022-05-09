@@ -1,4 +1,4 @@
-param webAppName string = 'azurebrownbagsession'
+param webAppName string = 'azure-tutorial-sessions'
 param sku string = 'F1'
 param linuxFxVersion string = 'node|14-lts'
 param location string = resourceGroup().location
