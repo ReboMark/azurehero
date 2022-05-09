@@ -6,6 +6,8 @@ then
 else
     echo "Creating Resource Group: $ENVIRONMENT-rg"
     az group create -n $ENVIRONMENT-rg -l eastus -o table
-    az deployment group create -g $rg --template-file ./deploy/$ENVIRONMENT/azure-$ENVIRONMENT.bicep
+    #az deployment group create -g $rg --template-file ./deploy/$ENVIRONMENT/azure-$ENVIRONMENT.bicep
 fi
 
+echo "Deploying to Bicep to Azure Web App"
+az deployment group create -g $rg --template-file ./deploy/$ENVIRONMENT/azure-$ENVIRONMENT.bicep
